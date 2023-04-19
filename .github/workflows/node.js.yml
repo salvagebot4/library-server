@@ -1,0 +1,31 @@
+name: Deploy to Heroku
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build and test
+        run: npm run build && npm test
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Install Heroku CLI
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18.x" 
+      - name: Login to Heroku
+        run: heroku login -i
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - name: Deploy to Heroku
+        run: |
+          heroku git:remote -a library-management-server
+          git push heroku main

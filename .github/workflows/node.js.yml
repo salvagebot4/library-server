@@ -22,9 +22,9 @@ jobs:
         with:
           node-version: "18.x" 
       - name: Login to Heroku
-        run: heroku login -i
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku login -i -t $HEROKU_API_KEY
       - name: Deploy to Heroku
         run: |
           heroku git:remote -a library-management-server

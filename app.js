@@ -7,9 +7,16 @@ const url = require("url");
 /*File Imports*/
 //CONTROLLERS
 const { UserController } = require("./Controllers/userController");
+const {BookController} = require("./Controllers/bookController");
+const { CheckouthistoryController} = require("./Controllers/checkouthistoryController");
+const { DeviceController } = require("./Controllers/deviceController");
+const {MediaController} = require("./Controllers/mediaController");
+const {ProductController} = require("./Controllers/productController");
+const {RoomController} = require("./Controllers/roomController");
 //AUTHENTICATE
 //UTILS
 const { getReqData } = require("./utility");
+
 
 
 //Usage: parse JSON
@@ -80,10 +87,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllProducts();
-            console.log(users);
+            const products = await new ProductController().getAllProducts();
+            console.log(products );
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(products )); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -97,10 +104,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllBooks();
-            console.log(users);
+            const books = await new BookController().getAllBooks();
+            console.log(books);
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(books)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -115,10 +122,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllDevices();
-            console.log(users);
+            const devices = await new DeviceController().getAllDevices();
+            console.log(devices);
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(devices)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -132,10 +139,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllMedias();
-            console.log(users);
+            const medias = await new MediaController().getAllMedias();
+            console.log(medias);
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(medias)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -150,10 +157,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllRooms();
-            console.log(users);
+            const rooms = await new RoomController().getAllRooms();
+            console.log(rooms);
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(rooms)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -167,10 +174,10 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const users = await new UserController().getAllCheckoutHistories();
-            console.log(users);
+            const checkouthistories = await new CheckouthistoryController().getAllCheckoutHistories();
+            console.log(checkouthistories);
             // Send response data
-            res.end(JSON.stringify(users)); 
+            res.end(JSON.stringify(checkouthistories)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);

@@ -8,6 +8,30 @@ class UserController {
         // Call getAllUsers method from the User model
         return await User.getAllUsers();
     }
+    async getAllProducts() {
+       
+        return await User.getAllProducts();
+    }
+    async getAllDevices() {
+        
+        return await User.getAllDevices();
+    }
+    async getAllMedias() {
+       
+        return await User.getAllMedias();
+    }
+    async getAllRooms() {
+    
+        return await User.getAllRooms();
+    }
+    async getAllCheckoutHistories() {
+    
+        return await User.getAllCheckoutHistories();
+    }
+    async getAllBooks() {
+    
+        return await User.getAllBooks();
+    }
 
     //TODO
     /*

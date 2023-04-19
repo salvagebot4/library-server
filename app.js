@@ -74,8 +74,116 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
+    else if (path === "/products" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllProducts();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if(path === "/products/books" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllBooks();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    
+    else if (path === "/products/devices" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllDevices();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if(path === "/products/medias" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllMedias();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+
+    else if(path === "/rooms" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllRooms();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if(path === "/checkoutHistory" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const users = await new UserController().getAllCheckoutHistories();
+            console.log(users);
+            // Send response data
+            res.end(JSON.stringify(users)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    
+    
+    
     //make route to 'GET' ALL products here
     //TODO
+
     /*
         GET routes for each table
 

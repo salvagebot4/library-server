@@ -64,7 +64,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     //This route gets all users data
-    else if (path === "/users" && method === "GET") {
+    else if (path === "api/users" && method === "GET") {
 
         try {
             // Response headers (200 -> Success)
@@ -81,7 +81,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if (path === "/products" && method === "GET")
+    else if (path === "api/products" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -98,7 +98,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "/products/books" && method === "GET")
+    else if(path === "api/products/books" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -116,7 +116,7 @@ const server = http.createServer(async (req, res) => {
         }
     }
     
-    else if (path === "/products/devices" && method === "GET")
+    else if (path === "api/products/devices" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -133,7 +133,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "/products/medias" && method === "GET")
+    else if(path === "api/products/medias" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -151,7 +151,7 @@ const server = http.createServer(async (req, res) => {
         }
     }
 
-    else if(path === "/rooms" && method === "GET")
+    else if(path === "api/rooms" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -168,7 +168,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "/checkoutHistory" && method === "GET")
+    else if(path === "api/checkoutHistory" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -197,6 +197,7 @@ const server = http.createServer(async (req, res) => {
     */
 
 /*POST Routes*/
+
 
 /*PUT Routes*/
 

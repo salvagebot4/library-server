@@ -20,7 +20,7 @@ jobs:
       - name: Install Heroku CLI
         uses: actions/setup-node@v2
         with:
-          node-version: "18" 
+          node-version: "18.x" 
       - name: Login to Heroku
         run: heroku login -i
         env:

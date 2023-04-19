@@ -73,9 +73,8 @@ const server = http.createServer(async (req, res) => {
             // Send error
             res.end(JSON.stringify({ message: error.message }));
         }
-        
     }
-
+    //make route to 'GET' ALL products here
     //TODO
     /*
         GET routes for each table

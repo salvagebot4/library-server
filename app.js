@@ -60,7 +60,7 @@ const server = http.createServer(async (req, res) => {
         // Response headers (200 -> Success)
         res.writeHead(200, res_header);
         // Send the response data
-        res.end(JSON.stringify("Hello World")); 
+        res.end(JSON.stringify("Hello Library")); 
     }
 
     //This route gets all users data

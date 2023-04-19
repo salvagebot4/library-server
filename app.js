@@ -51,7 +51,7 @@ const server = http.createServer(async (req, res) => {
     //Brief description of route here this is a test for home
     else if (path === "/" && method === "GET") {
         // Response headers (200 -> Success)
-        res.writeHead(200, headers);
+        res.writeHead(200, res_header);
         // Send the response data
         res.end(JSON.stringify("Hello World")); 
     }

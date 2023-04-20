@@ -8,6 +8,10 @@ class UserController {
         // Call getAllUsers method from the User model
         return await User.getAllUsers();
     }
+    async createUser(userData) {
+        // Call getAllUsers method from the User model
+        return await User.createUser(userData);
+    }
 
     //TODO
     /*

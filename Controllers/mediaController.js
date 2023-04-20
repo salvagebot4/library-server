@@ -5,7 +5,10 @@ class MediaController {
        
         return await Media.getAllMedias();
     }
-  
+    async addMedia(mediaData) {
+        // Call getAllUsers method from the User model
+        return await Media.addMedia(mediaData);
+    }
 
 }
 

@@ -5,7 +5,14 @@ class ProductController {
        
         return await Product.getAllProducts();
     }
-  
+    async registerProduct(productData) {
+        // Call getAllUsers method from the User model
+        return await Product.registerProduct(productData);
+    }
+    async markReserved(reservationData) {
+        // Call getAllUsers method from the User model
+        return await Product.markReserved(reservationData);
+    }
 
 }
 

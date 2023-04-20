@@ -64,7 +64,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     //This route gets all users data
-    else if (path === "api/users" && method === "GET") {
+    else if (path === "/api/users" && method === "GET") {
 
         try {
             // Response headers (200 -> Success)
@@ -81,7 +81,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if (path === "api/products" && method === "GET")
+    else if (path === "/api/products" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -98,7 +98,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "api/products/books" && method === "GET")
+    else if(path === "/api/products/books" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -116,7 +116,7 @@ const server = http.createServer(async (req, res) => {
         }
     }
     
-    else if (path === "api/products/devices" && method === "GET")
+    else if (path === "/api/products/devices" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -133,7 +133,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "api/products/medias" && method === "GET")
+    else if(path === "/api/products/medias" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -151,7 +151,7 @@ const server = http.createServer(async (req, res) => {
         }
     }
 
-    else if(path === "api/rooms" && method === "GET")
+    else if(path === "/api/rooms" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -168,7 +168,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-    else if(path === "api/checkoutHistory" && method === "GET")
+    else if(path === "/api/checkoutHistory" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)
@@ -186,21 +186,95 @@ const server = http.createServer(async (req, res) => {
         }
     }
     
-    
-    
-    //make route to 'GET' ALL products here
-    //TODO
-
-    /*
-        GET routes for each table
-
-    */
-
 /*POST Routes*/
+else if (path === "/api/register-user" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const userData = JSON.parse(requestData);
+        console.log(userData);
+        // Create the new user
+        const newUser = await new UserController().createUser(userData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(userData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
+else if (path === "/api/register-products" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const userData = JSON.parse(requestData);
+        console.log(userData);
+        // Create the new user
+        const newUser = await new UserController().createUser(userData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(userData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
 
 
+  
 /*PUT Routes*/
+else if (path === "/api/update-products" && method === "PUT") {
+    try {
+      res.writeHead(200, res_header);
+      // Get the request data
+      const requestData = await getReqData(req);
+      // Parse the JSON data
+      const reservationData = JSON.parse(requestData);
+      console.log(reservationData);
+      // Make a reservation for the product
+      const reservationResult = await new ProductController().markReserved(reservationData);
 
+
+      // Send the reservation data in response
+      res.end(JSON.stringify(reservationResult));
+    } catch (error) {
+      // Set error
+      res.writeHead(500, error_header);
+      // Send error
+      res.end(JSON.stringify({ message: error.message }));
+    }
+  }
+  else if (path === "/api/update-room" && method === "PUT") {
+    try {
+      res.writeHead(200, res_header);
+      // Get the request data
+      const requestData = await getReqData(req);
+      // Parse the JSON data
+      const reservationData = JSON.parse(requestData);
+      console.log(reservationData);
+      // Make a reservation for the product
+      const reservationResult = await new RoomController().markReserved(reservationData);
+
+
+      // Send the reservation data in response
+      res.end(JSON.stringify(reservationResult));
+    } catch (error) {
+      // Set error
+      res.writeHead(500, error_header);
+      // Send error
+      res.end(JSON.stringify({ message: error.message }));
+    }
+  }
 
 });
 

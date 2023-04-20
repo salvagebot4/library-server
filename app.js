@@ -188,13 +188,7 @@ const server = http.createServer(async (req, res) => {
     
     
     
-    //make route to 'GET' ALL products here
-    //TODO
-
-    /*
-        GET routes for each table
-
-    */
+   
 
 /*POST Routes*/
 

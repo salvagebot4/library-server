@@ -5,9 +5,9 @@ class ProductController {
        
         return await Product.getAllProducts();
     }
-    async registerProduct(productData) {
+    async addProduct(productData) {
         // Call getAllUsers method from the User model
-        return await Product.registerProduct(productData);
+        return await Product.addProduct(productData);
     }
     async markReserved(reservationData) {
         // Call getAllUsers method from the User model

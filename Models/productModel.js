@@ -13,7 +13,7 @@ class Product {
             throw new Error('Failed to retrieve all products.');
         }
     }
-    static async registerProduct(productData) {
+    static async addProduct(productData) {
         try {
 
             const email = null;
@@ -24,17 +24,21 @@ class Product {
           
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type,product_name,cost,stock_number,email,fine_multiplier,date_checked_out, is_checked_out, is_reserved) 
+              INSERT INTO library.product (product_id,product_type,product_name,cost,email,fine_multiplier,date_checked_out, is_checked_out, is_reserved) 
               VALUES ('${productData.product_id}','${productData.product_type}','${productData.product_name}',${productData.cost},
-              ${productData.stock_number+=1},'${email}',${productData.fine_multiplier},${date_checked_out},${is_checked_out},${is_reserved});
+              '${email}',${productData.fine_multiplier},${date_checked_out},${is_checked_out},${is_reserved});
 
+              UPDATE library.product
+              SET stock_number = stock_number + 1
+              WHERE product_id = '${productData.product_id}';
+             
             `)
 
             return result.rows;
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to send data back to user.');
+            throw new Error('Failed to add product data');
         }
     }
 

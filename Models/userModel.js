@@ -49,7 +49,7 @@ class User {
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to send data back to user.');
+            throw new Error('Failed register user.');
         }
     }
 

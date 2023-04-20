@@ -208,20 +208,20 @@ else if (path === "/api/register-user" && method === "POST") {
         res.end(JSON.stringify({ message: error.message }));
     }
 }
-else if (path === "/api/register-products" && method === "POST") {
+else if (path === "/api/add-product" && method === "POST") {
     try {
         res.writeHead(200, res_header);
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const userData = JSON.parse(requestData);
-        console.log(userData);
+        const productData = JSON.parse(requestData);
+        console.log(productData);
         // Create the new user
-        const newUser = await new UserController().createUser(userData);
+        const newUser = await new ProductController().addProduct(productData);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(userData));
+        res.end(JSON.stringify(productData));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -229,7 +229,69 @@ else if (path === "/api/register-products" && method === "POST") {
         res.end(JSON.stringify({ message: error.message }));
     }
 }
-
+else if (path === "/api/add-device" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const deviceData = JSON.parse(requestData);
+        console.log(deviceData);
+        // Create the new user
+        const newUser = await new DeviceController().addDevice(deviceData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(deviceData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
+else if (path === "/api/add-media" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const mediaData = JSON.parse(requestData);
+        console.log(mediaData);
+        // Create the new user
+        const newUser = await new MediaController().addMedia(mediaData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(mediaData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
+else if (path === "/api/add-book" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const bookData = JSON.parse(requestData);
+        console.log(bookData);
+        // Create the new user
+        const newUser = await new BookController().addBook(bookData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(bookData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
 
   
 /*PUT Routes*/

@@ -298,17 +298,17 @@ else if (path === "/api/add-book" && method === "POST") {
 else if (path === "/api/update-products" && method === "PUT") {
     try {
       res.writeHead(200, res_header);
-      // Get the request data
-      const requestData = await getReqData(req);
       // Parse the JSON data
-      const reservationData = JSON.parse(requestData);
-      console.log(reservationData);
-      // Make a reservation for the product
-      const reservationResult = await new ProductController().markReserved(reservationData);
+      const data = JSON.parse(await getReqData(req));
+      
+      console.log(data);
+      // Update a product
+
+      const result = await new ProductController().updateProduct(data);
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(reservationResult));
+      res.end(JSON.stringify(data));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -321,17 +321,16 @@ else if (path === "/api/update-products" && method === "PUT") {
   else if (path === "/api/update-room" && method === "PUT") {
     try {
       res.writeHead(200, res_header);
-      // Get the request data
-      const requestData = await getReqData(req);
       // Parse the JSON data
-      const reservationData = JSON.parse(requestData);
-      console.log(reservationData);
+      const data = JSON.parse(await getReqData(req));
+      console.log(data);
       // Make a reservation for the product
-      const reservationResult = await new RoomController().markReserved(reservationData);
+
+      //const reservationResult = await new RoomController().markReserved(reservationData);
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(reservationResult));
+      res.end(JSON.stringify(data));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);

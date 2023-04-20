@@ -5,9 +5,9 @@ class RoomController {
     
         return await Room .getAllRooms();
     }
-    async markReserved(reservationData) {
+    async updateRoom(data) {
         // Call getAllUsers method from the User model
-        return await Room.markReserved(reservationData);
+        return await Room.updateRoom(data);
     }
 
 }

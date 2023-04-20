@@ -9,9 +9,9 @@ class ProductController {
         // Call getAllUsers method from the User model
         return await Product.addProduct(productData);
     }
-    async markReserved(reservationData) {
+    async updateProduct(data) {
         // Call getAllUsers method from the User model
-        return await Product.markReserved(reservationData);
+        return await Product.updateProduct(data);
     }
 
 }

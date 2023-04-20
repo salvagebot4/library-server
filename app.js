@@ -338,7 +338,11 @@ else if (path === "/api/update-products" && method === "PUT") {
       res.end(JSON.stringify({ message: error.message }));
     }
   }
-
+  // No route present
+  else {
+    res.writeHead(404, error_header);
+    res.end(JSON.stringify({ message: "Route not found" }));
+  }
 });
 
 server.listen(PORT, () => {

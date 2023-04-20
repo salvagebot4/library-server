@@ -5,7 +5,10 @@ class BookController {
     
         return await  Book.getAllBooks();
     }
-
+    async addBook(bookData) {
+        // Call getAllUsers method from the User model
+        return await Book.addBook(bookData);
+    }
   
 
 }

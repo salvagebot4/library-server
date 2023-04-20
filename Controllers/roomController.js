@@ -5,7 +5,10 @@ class RoomController {
     
         return await Room .getAllRooms();
     }
-  
+    async updateRoom(data) {
+        // Call getAllUsers method from the User model
+        return await Room.updateRoom(data);
+    }
 
 }
 

@@ -316,6 +316,8 @@ else if (path === "/api/update-products" && method === "PUT") {
       res.end(JSON.stringify({ message: error.message }));
     }
   }
+
+
   else if (path === "/api/update-room" && method === "PUT") {
     try {
       res.writeHead(200, res_header);

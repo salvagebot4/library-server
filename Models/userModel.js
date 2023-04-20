@@ -23,6 +23,7 @@ class User {
         try {
             const role = userData.role;
             const enabled = true;
+            const is_deleted = false;
             let dayLimit = 0;
             let itemLimit = 0;
           
@@ -40,8 +41,8 @@ class User {
           
             const result = await pool.query(`
 
-              INSERT INTO library.USERS (email,password,role,first_name,last_name,item_limit,day_limit,enabled) 
-              VALUES ('${userData.email}','${userData.password}','${role}','${userData.first_name}','${userData.last_name}',${itemLimit},${dayLimit},${enabled});
+              INSERT INTO library.USERS (email,password,role,first_name,last_name,item_limit,day_limit,enabled, is_deleted) 
+              VALUES ('${userData.email}','${userData.password}','${role}','${userData.first_name}','${userData.last_name}',${itemLimit},${dayLimit},${enabled},${is_deleted});
 
             `)
 

@@ -20,13 +20,14 @@ class Product {
             const date_checked_out = null;
             const is_checked_out = false;
             const is_reserved = false;
-            //email null
+            const is_deleted = false;
+           
           
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type,product_name,cost,email,fine_multiplier,date_checked_out, is_checked_out, is_reserved) 
+              INSERT INTO library.product (product_id,product_type,product_name,cost,email,fine_multiplier,date_checked_out, is_checked_out, is_reserved,is_deleted) 
               VALUES ('${productData.product_id}','${productData.product_type}','${productData.product_name}',${productData.cost},
-              '${email}',${productData.fine_multiplier},${date_checked_out},${is_checked_out},${is_reserved});
+              '${email}',${productData.fine_multiplier},${date_checked_out},${is_checked_out},${is_reserved},${is_deleted});
 
               UPDATE library.product
               SET stock_number = stock_number + 1

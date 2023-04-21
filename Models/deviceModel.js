@@ -15,12 +15,10 @@ class Device {
     }
     static async addDevice(deviceData) {
         try {
-
-            const is_deleted = false;
             const result = await pool.query(`
 
-              INSERT INTO library.device (product_id,manufacturer,is_deleted) 
-              VALUES ('${deviceData.product_id}','${deviceData.manufacturer}',${is_deleted});
+              INSERT INTO library.device (product_id,manufacturer) 
+              VALUES ('${deviceData.product_id}','${deviceData.manufacturer}');
 
             `)
 

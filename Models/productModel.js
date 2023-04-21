@@ -21,13 +21,13 @@ class Product {
             const is_checked_out = false;
             const is_reserved = false;
             const is_deleted = false;
-           
+            const is_featured = false;
           
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,email,fine_multiplier,is_checked_out, is_reserved,is_deleted) 
+              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,fine_multiplier,is_checked_out, is_reserved,is_deleted,is_featured) 
               VALUES ('${productData.product_id}',${productData.product_type_id},'${productData.product_name}',${productData.cost},${productData.stock_number},
-              '${productData.email}',${productData.fine_multiplier},${is_checked_out},${is_reserved},${is_deleted});
+             ${productData.fine_multiplier},${is_checked_out},${is_reserved},${is_deleted},${is_featured});
             
              
              

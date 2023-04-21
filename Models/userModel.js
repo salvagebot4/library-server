@@ -84,6 +84,24 @@ class User {
             throw new Error('Failed to alter user.');
         }
     }
+    static async postuserInfo(data) {
+        try {
+           
+            const result = await pool.query(`
+
+              SELECT * FROM library.user_login 
+              WHERE email = '${data.email}' AND password = '${data.password}';
+
+            `)
+            console.log(`user ${data.email} has been retrieved`);
+            return result.rows;
+        } catch (error) {
+            console.log(error);
+            throw new Error('Failed to receive user login.');
+        }
+    }
+    
+
 
 }
 

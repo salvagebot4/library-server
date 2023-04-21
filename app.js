@@ -226,6 +226,27 @@ else if (path === "/api/register-user" && method === "POST") {
         res.end(JSON.stringify({ message: error.message }));
     }
 }
+else if (path === "/api/login" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const userData = JSON.parse(requestData);
+        console.log(userData);
+        // Create the new user
+        const newUser = await new UserController().postuserInfo(userData);
+    
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(userData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
 else if (path === "/api/add-productType" && method === "POST") {
     try {
         res.writeHead(200, res_header);

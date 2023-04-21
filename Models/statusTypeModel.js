@@ -18,8 +18,8 @@ class StatusType {
 
             const result = await pool.query(`
 
-              INSERT INTO library.status (status_id,status_name) 
-              VALUES (${data.status_id},'${data.status_name}');
+              INSERT INTO library.status (type_id,status_name) 
+              VALUES (${data.type_id},'${data.status_name}');
             `)
 
             return result.rows;
@@ -35,14 +35,14 @@ class StatusType {
             let result;
             const new_value = data.new_value;
             const column_name = data.column_name;
-            const status_id = data.status_id ;
+            const type_id = data.type_id ;
             console.log(typeof new_value);
             if(typeof new_value === 'string')
             {
                result = await pool.query(`
                    UPDATE library.status
                    SET ${column_name}='${new_value}'
-                   WHERE status_id  = '${status_id}';
+                   WHERE type_id  = '${type_id}';
                `);
             }
             else
@@ -50,10 +50,10 @@ class StatusType {
                result = await pool.query(`
                UPDATE library.status
                SET ${column_name}=${new_value}
-               WHERE status_id  = ${status_id  };
+               WHERE type_id  = ${type_id  };
                `);
             }
-            console.log(`Status Type ${status_id } updated`);
+            console.log(`Status Type ${type_id } updated`);
             return result;
         } catch (error) {
             console.log(error);

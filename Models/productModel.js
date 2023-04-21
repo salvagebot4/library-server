@@ -16,8 +16,8 @@ class Product {
     static async addProduct(productData) {
         try {
 
-            const email = null;
-            const date_checked_out = null;
+            
+          
             const is_checked_out = false;
             const is_reserved = false;
             const is_deleted = false;
@@ -25,9 +25,9 @@ class Product {
           
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type,product_name,cost,email,fine_multiplier,date_checked_out, is_checked_out, is_reserved,is_deleted) 
-              VALUES ('${productData.product_id}','${productData.product_type}','${productData.product_name}',${productData.cost},
-              '${email}',${productData.fine_multiplier},${date_checked_out},${is_checked_out},${is_reserved},${is_deleted});
+              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,email,fine_multiplier,is_checked_out, is_reserved,is_deleted) 
+              VALUES ('${productData.product_id}',${productData.product_type_id},'${productData.product_name}',${productData.cost},${productData.stock_number},
+              '${productData.email}',${productData.fine_multiplier},${is_checked_out},${is_reserved},${is_deleted});
 
               UPDATE library.product
               SET stock_number = stock_number + 1
@@ -74,7 +74,7 @@ class Product {
         }
         catch (error) {
             console.log(error);
-            throw new Error('Failed to retrieve all products.');
+            throw new Error('Failed to alter product.');
         }
     }
     

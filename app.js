@@ -258,6 +258,7 @@ else if (path === "/api/add-product" && method === "POST") {
         // Create the new user
         const newUser = await new ProductController().addProduct(productData);
     
+
        
         // Send the new user data in response
         res.end(JSON.stringify(productData));
@@ -363,7 +364,6 @@ else if (path === "/api/update-user" && method === "PUT") {
       // Update a product
 
       const result = await new UserController().updateUser(data);
-
 
       // Send the reservation data in response
       res.end(JSON.stringify(data));

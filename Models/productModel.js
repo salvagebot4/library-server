@@ -21,12 +21,12 @@ class Product {
 
             const is_deleted = false;
             const is_featured = false;
-          
+            const status_type_id = 1;
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,fine_multiplier,is_deleted,is_featured) 
+              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,fine_multiplier,is_deleted,is_featured, status_type_id) 
               VALUES ('${productData.product_id}',${productData.product_type_id},'${productData.product_name}',${productData.cost},${productData.stock_number},
-             ${productData.fine_multiplier},${is_deleted},${is_featured});
+             ${productData.fine_multiplier},${is_deleted},${is_featured}, ${status_type_id});
             
              
              

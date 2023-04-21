@@ -204,7 +204,7 @@ const server = http.createServer(async (req, res) => {
             res.end(JSON.stringify({ message: error.message }));
         }
     }
-      else if(path === "/api/status" && method === "GET")
+      else if(path === "/api/statusTypes" && method === "GET")
     {
         try {
             // Response headers (200 -> Success)

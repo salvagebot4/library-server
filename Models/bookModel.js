@@ -15,12 +15,11 @@ class Book {
     }
     static async addBook(bookData) {
         try {
-            const is_deleted = false;
             const result = await pool.query(`
 
-              INSERT INTO library.book (author, description, publisher, publication_date, product_id, page_count,is_deleted) 
+              INSERT INTO library.book (author, description, publisher, publication_date, product_id, page_count) 
               VALUES ('${bookData.author}','${bookData.description}',
-              '${bookData.publisher}', '${bookData.publication_date}', '${bookData.product_id}', ${bookData.page_count},${is_deleted});
+              '${bookData.publisher}', '${bookData.publication_date}', '${bookData.product_id}', ${bookData.page_count});
 
             `)
 

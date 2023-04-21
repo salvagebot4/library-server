@@ -1,27 +1,25 @@
 const { pool } = require("../database");
-class Device {
+class ProductType {
 
-    static async getAllDevices() {
+    static async getAllProductsTypes() {
         try {
             const result = await pool.query(`
-                SELECT * FROM postgres.library.device;
+                SELECT * FROM postgres.library.product_type;
             `)
             return result.rows;
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to retrieve all devices.');
+            throw new Error('Failed to retrieve all product types.');
         }
     }
-    static async addDevice(deviceData) {
+    static async addProductType(productTypeData) {
         try {
 
-            const is_deleted = false;
             const result = await pool.query(`
 
-              INSERT INTO library.device (product_id,manufacturer,is_deleted) 
-              VALUES ('${deviceData.product_id}','${deviceData.manufacturer}',${is_deleted});
-
+              INSERT INTO library.product_type (type_id,type_name) 
+              VALUES (${productTypeData.type_id},'${productTypeData.type_name}');
             `)
 
             return result.rows;
@@ -31,40 +29,43 @@ class Device {
             throw new Error('Failed to add product data');
         }
     }
-    static async updateDevice(data) {
+
+
+
+
+    static async updateproductType(data) {
         try {
            
             let result;
             const new_value = data.new_value;
             const column_name = data.column_name;
-            const product_id= data.product_id;
+            const type_id = data.type_id ;
             console.log(typeof new_value);
             if(typeof new_value === 'string')
             {
                result = await pool.query(`
-                   UPDATE library.device
+                   UPDATE library.product_type
                    SET ${column_name}='${new_value}'
-                   WHERE product_id = '${product_id}';
+                   WHERE type_id  = '${type_id}';
                `);
             }
             else
             {
                result = await pool.query(`
-               UPDATE library.device
+               UPDATE library.product_type
                SET ${column_name}=${new_value}
-               WHERE product_id= ${product_id};
+               WHERE type_id = ${type_id };
                `);
             }
-            console.log(`device ${product_id} updated`);
+            console.log(`Product Type ${type_id } updated`);
             return result;
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to alter device.');
+            throw new Error('Failed to alter product type.');
         }
     }
-
+    
 }
-
 module.exports = {
-    Device,
+    ProductType,
 }

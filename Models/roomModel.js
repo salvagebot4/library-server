@@ -16,25 +16,32 @@ class Room {
     static async updateRoom(data) {
         try {
            
-            const result = await pool.query(`
-
-                SELECT * FROM postgres.library.room WHERE  room_size= ${data.room_size} AND is_reserved = ${false} AND is_deleted = ${false};
-
-            `)
-            if(result.rows.length > 0)
-            { 
-                result.rows['email'] = data.email;
-                result.rows['is_reserved'] = true;
-                return result.rows;
+            let result;
+            const new_value = data.new_value;
+            const column_name = data.column_name;
+            const room_number = data.room_number;
+            console.log(typeof new_value);
+            if(typeof new_value === 'string')
+            {
+               result = await pool.query(`
+                   UPDATE library.room
+                   SET ${column_name}='${new_value}'
+                   WHERE room_number = '${room_number}';
+               `);
             }
             else
             {
-                console.log('Reservation is unavailable for this room');
+               result = await pool.query(`
+               UPDATE library.room
+               SET ${column_name}=${new_value}
+               WHERE room_number = ${room_number};
+               `);
             }
-            
+            console.log(`room ${room_number} updated`);
+            return result;
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to retrieve all products.');
+            throw new Error('Failed to alter room.');
         }
     }
 }

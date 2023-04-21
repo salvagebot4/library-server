@@ -28,10 +28,8 @@ class Product {
               INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,email,fine_multiplier,is_checked_out, is_reserved,is_deleted) 
               VALUES ('${productData.product_id}',${productData.product_type_id},'${productData.product_name}',${productData.cost},${productData.stock_number},
               '${productData.email}',${productData.fine_multiplier},${is_checked_out},${is_reserved},${is_deleted});
-
-              UPDATE library.product
-              SET stock_number = stock_number + 1
-              WHERE product_id = '${productData.product_id}';
+            
+             
              
             `)
 

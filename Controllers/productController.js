@@ -5,9 +5,9 @@ class ProductController {
        
         return await Product.getAllProducts();
     }
-    async addProduct(productData) {
+    async addProduct(data) {
         // Call getAllUsers method from the User model
-        return await Product.addProduct(productData);
+        return await Product.addProduct(data);
     }
     async updateProduct(data) {
         // Call getAllUsers method from the User model

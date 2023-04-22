@@ -84,7 +84,7 @@ class User {
             throw new Error('Failed to alter user.');
         }
     }
-    static async postuserInfo(data) {
+    static async postUserInfo(data) {
         try {
            
             const result = await pool.query(`

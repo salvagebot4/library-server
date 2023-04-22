@@ -17,9 +17,9 @@ class UserController {
         // Call getAllUsers method from the User model
         return await User.updateUser(data);
     }
-    async postuserInfo(userData) {
+    async postUserInfo(data) {
         // Call getAllUsers method from the User model
-        return await User.postuserInfo(userData);
+        return await User.postUserInfo(data);
     }
 
     //TODO

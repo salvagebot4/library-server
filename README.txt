@@ -28,6 +28,19 @@ example data:
     "type_name": "Book"
 }
 
+GET : /api/productInstances
+this route gets all productInstances data 
+example data:
+{
+    "instance_id": 1,
+    "product_id": "10003",
+    "email": "morgan@example.com",
+    "status_type_id": 1,
+    "checked_out_date": "2023-04-21T05:00:00.000Z",
+    "returned_date": "2023-04-21T05:00:00.000Z",
+    "is_deleted": false
+}
+
 GET : /api/statusTypes
 this route gets all statusTypes data 
 example data:
@@ -98,10 +111,10 @@ GET : /api/checkoutHistory
 this route gets all checkoutHistory data 
 example data:
 {
-    "product_id": "10002",
-    "email": "jane.doe@example.com",
-    "date_checked_out": "2022-01-01T06:00:00.000Z"
+    "checkout_id": 21,
+    "instance_id": 2
 }
+
 --------------------------------------------------------------------
 POST : /api/register-User
 this route registers a user data
@@ -131,6 +144,17 @@ example data:
 	"product_name": "Food 101",
 	"cost": "5.00",
 	"fine_multiplier": "0.25"	
+}
+
+POST : /api/add-productInstance
+this route registers a productInstance
+example data:
+{
+	"instance_id" : "1",
+	"product_id" : "10003",
+	"email" : "kevin@example.com",
+	"checked_out_date" : "2023-04-21",
+	"returned_date" : "2023-04-21"
 }
 
 POST : /api/add-device
@@ -169,10 +193,9 @@ example data:
 POST : /api/add-checkoutHistory
 this route registers a checkoutHistory
 example data:
-{	
-    "product_id" : "10003",
-    "email" : "kevin@example.com",
-    "date_checked_out" : "2023-04-20"
+{
+	"checkout_id" : "21",
+	"instance_id" : 1
 }
 
 POST : /api/add-statusType
@@ -209,6 +232,15 @@ example data:
     "new_value" : "Cool Fish",
 	"column_name": "product_name",
     "product_id" : "10003"
+}
+
+PUT: /api/update-productInstance
+this route updates a productInstance
+example data: 
+{
+	"new_value" : "morgan@example.com" ,
+	"column_name" : "email",
+	"instance_id" : "1"
 }
 
 PUT : /api/update-device
@@ -251,9 +283,9 @@ PUT : /api/update-checkoutHistory
 this route updates a checkoutHistory
 example data:
 {
-    "new_value" : "2023-04-21",
-	"column_name": "date_checked_out",
-    "product_id" : "10003"
+	"new_value" : "2" ,
+	"column_name" : "instance_id",
+	"checkout_id" : "21"
 }
 
 PUT : /api/update-statusType

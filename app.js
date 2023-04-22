@@ -8,7 +8,7 @@ const url = require("url");
 //CONTROLLERS
 const { UserController } = require("./Controllers/userController");
 const {BookController} = require("./Controllers/bookController");
-const { CheckoutHistoryController} = require("./Controllers/checkoutHistoryController");
+const { CheckoutHistoryController} = require("./Controllers/checkouthistoryController");
 const { DeviceController } = require("./Controllers/deviceController");
 const {MediaController} = require("./Controllers/mediaController");
 const {ProductTypeController} = require("./Controllers/productTypeController");

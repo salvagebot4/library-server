@@ -17,17 +17,13 @@ class ProductInstance {
         try {
 
             
-          
-
             const is_deleted = false;
             const status_type_id = 1;
             const result = await pool.query(`
 
               INSERT INTO library.product_instance (instance_id, product_id,email,status_type_id,checked_out_date,returned_date,is_deleted) 
-              VALUES (${data.instance_id},'${data.product_id}',${data.email},${status_type_id},'${data.checked_out_date}',
-             '${data.returned_date}',${is_deleted});
+              VALUES (${data.instance_id},'${data.product_id}','${data.email}',${status_type_id},'${data.checked_out_date}','${data.returned_date}',${is_deleted});
             
-             
              
             `)
 
@@ -35,7 +31,7 @@ class ProductInstance {
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to add product data');
+            throw new Error('Failed to add product instance data');
         }
     }
 
@@ -70,7 +66,7 @@ class ProductInstance {
         }
         catch (error) {
             console.log(error);
-            throw new Error('Failed to alter product.');
+            throw new Error('Failed to alter product instance.');
         }
     }
     

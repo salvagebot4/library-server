@@ -318,7 +318,7 @@ else if (path === "/api/add-product" && method === "POST") {
 
        
         // Send the new user data in response
-        res.end(JSON.stringify(productData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -337,10 +337,8 @@ else if (path === "/api/add-productInstance" && method === "POST") {
         // Create the new user
         const newUser = await new ProductInstanceController().addProductInstance(data);
     
-
-       
         // Send the new user data in response
-        res.end(JSON.stringify(productData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);

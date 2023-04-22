@@ -13,12 +13,12 @@ class Device {
             throw new Error('Failed to retrieve all devices.');
         }
     }
-    static async addDevice(deviceData) {
+    static async addDevice(data) {
         try {
             const result = await pool.query(`
 
               INSERT INTO library.device (product_id,manufacturer) 
-              VALUES ('${deviceData.product_id}','${deviceData.manufacturer}');
+              VALUES ('${data.product_id}','${data.manufacturer}');
 
             `)
 

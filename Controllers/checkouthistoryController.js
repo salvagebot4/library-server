@@ -1,18 +1,18 @@
-const { CheckoutHistory } = require("../Models/checkouthistoryModel");
+const { CheckoutHistory } = require("../Models/checkoutHistoryModel");
 
-class CheckouthistoryController {
+class CheckoutHistoryController {
    
     async getAllCheckoutHistories() {
     
         return await CheckoutHistory.getAllCheckoutHistories();
     }
-    async addCheckouthistory(data) {
+    async addCheckoutHistory(data) {
         // Call getAllUsers method from the User model
-        return await   CheckoutHistory.addCheckouthistory(data);
+        return await   CheckoutHistory.addCheckoutHistory(data);
     }
-    async updateCheckouthistory(data) {
+    async updateCheckoutHistory(data) {
         // Call getAllUsers method from the User model
-        return await CheckoutHistory.updateCheckouthistory(data);
+        return await CheckoutHistory.updateCheckoutHistory(data);
     }
 
 
@@ -21,5 +21,5 @@ class CheckouthistoryController {
 }
 
 module.exports = {
-    CheckouthistoryController,
+    CheckoutHistoryController,
 }

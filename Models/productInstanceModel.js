@@ -1,34 +1,29 @@
 const { pool } = require("../database");
-class Product {
+class ProductInstance {
 
-    static async getAllProducts() {
+    static async getAllProductInstances() {
         try {
             const result = await pool.query(`
-                SELECT * FROM postgres.library.product;
+                SELECT * FROM postgres.library.product_instance;
             `)
             return result.rows;
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to retrieve all products.');
+            throw new Error('Failed to retrieve all product instances.');
         }
     }
-    static async addProduct(data) {
+    static async addProductInstance(data) {
         try {
 
             
-          
-
             const is_deleted = false;
-            const is_featured = false;
             const status_type_id = 1;
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type_id,product_name,cost,fine_multiplier,is_deleted,is_featured, status_type_id) 
-              VALUES ('${data.product_id}',${data.product_type_id},'${data.product_name}',${data.cost},
-             ${data.fine_multiplier},${is_deleted},${is_featured}, ${status_type_id});
+              INSERT INTO library.product_instance (instance_id, product_id,email,status_type_id,checked_out_date,returned_date,is_deleted) 
+              VALUES (${data.instance_id},'${data.product_id}','${data.email}',${status_type_id},'${data.checked_out_date}','${data.returned_date}',${is_deleted});
             
-             
              
             `)
 
@@ -36,47 +31,47 @@ class Product {
 
         } catch (error) {
             console.log(error);
-            throw new Error('Failed to add product data');
+            throw new Error('Failed to add product instance data');
         }
     }
 
 
 
 
-    static async updateProduct(data) {
+    static async updateProductInstance(data) {
         try {
              let result;
              const new_value = data.new_value;
              const column_name = data.column_name;
-             const product_id = data.product_id;
+             const instance_id = data.instance_id;
              console.log(typeof new_value);
              if(typeof new_value === 'string')
              {
                 result = await pool.query(`
-                    UPDATE library.product 
+                    UPDATE library.product_instance
                     SET ${column_name}='${new_value}'
-                    WHERE product_id = '${product_id}';
+                    WHERE instance_id = '${instance_id}';
                 `);
              }
              else
              {
                 result = await pool.query(`
-                UPDATE library.product 
+                UPDATE library.product_instance
                 SET ${column_name}=${new_value}
-                WHERE product_id = ${product_id};
+                WHERE instance_id = ${instance_id};
                 `);
              }
-             console.log(`Product ${product_id} updated`);
+             console.log(`Product instance ${instance_id} updated`);
              return result;
         }
         catch (error) {
             console.log(error);
-            throw new Error('Failed to alter product.');
+            throw new Error('Failed to alter product instance.');
         }
     }
     
 }
 
 module.exports = {
-    Product,
+    ProductInstance,
 }

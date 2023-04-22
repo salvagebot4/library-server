@@ -5,14 +5,14 @@ class ProductTypeController {
        
         return await ProductType.getAllProductsTypes();
     }
-    async addProductType(productTypeData) {
+    async addProductType(data) {
         // Call getAllUsers method from the User model
-        return await  ProductType .addProductType(productTypeData);
+        return await  ProductType .addProductType(data);
     }
 
     async updateproductType(data) {
         // Call getAllUsers method from the User model
-        return await  ProductType .updateproductType(data);
+        return await  ProductType .updateProductType(data);
     }
    
 

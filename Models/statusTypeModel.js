@@ -1,7 +1,7 @@
 const { pool } = require("../database");
 class StatusType {
 
-    static async getAllstatusTypes() {
+    static async getAllStatusTypes() {
         try {
             const result = await pool.query(`
                 SELECT * FROM postgres.library.status;
@@ -13,7 +13,7 @@ class StatusType {
             throw new Error('Failed to retrieve all status types.');
         }
     }
-    static async addstatusType(data) {
+    static async addStatusType(data) {
         try {
 
             const result = await pool.query(`
@@ -29,7 +29,7 @@ class StatusType {
             throw new Error('Failed to add status data');
         }
     }
-    static async updatestatusType(data) {
+    static async updateStatusType(data) {
         try {
            
             let result;

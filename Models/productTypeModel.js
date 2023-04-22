@@ -13,13 +13,13 @@ class ProductType {
             throw new Error('Failed to retrieve all product types.');
         }
     }
-    static async addProductType(productTypeData) {
+    static async addProductType(data) {
         try {
 
             const result = await pool.query(`
 
               INSERT INTO library.product_type (type_id,type_name) 
-              VALUES (${productTypeData.type_id},'${productTypeData.type_name}');
+              VALUES (${data.type_id},'${data.type_name}');
             `)
 
             return result.rows;
@@ -33,7 +33,7 @@ class ProductType {
 
 
 
-    static async updateproductType(data) {
+    static async updateProductType(data) {
         try {
            
             let result;

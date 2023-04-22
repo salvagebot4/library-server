@@ -13,7 +13,7 @@ class Product {
             throw new Error('Failed to retrieve all products.');
         }
     }
-    static async addProduct(productData) {
+    static async addProduct(data) {
         try {
 
             
@@ -24,9 +24,9 @@ class Product {
             const status_type_id = 1;
             const result = await pool.query(`
 
-              INSERT INTO library.product (product_id,product_type_id,product_name,cost,stock_number,fine_multiplier,is_deleted,is_featured, status_type_id) 
-              VALUES ('${productData.product_id}',${productData.product_type_id},'${productData.product_name}',${productData.cost},${productData.stock_number},
-             ${productData.fine_multiplier},${is_deleted},${is_featured}, ${status_type_id});
+              INSERT INTO library.product (product_id,product_type_id,product_name,cost,fine_multiplier,is_deleted,is_featured, status_type_id) 
+              VALUES ('${data.product_id}',${data.product_type_id},'${data.product_name}',${data.cost},
+             ${data.fine_multiplier},${is_deleted},${is_featured}, ${status_type_id});
             
              
              

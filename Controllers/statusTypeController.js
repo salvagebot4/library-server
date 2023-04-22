@@ -1,18 +1,18 @@
 const { StatusType } = require("../Models/statusTypeModel");
 class StatusTypeController {
    
-    async getAllstatusTypes() {
+    async getAllStatusTypes() {
        
-        return await StatusType .getAllstatusTypes();
+        return await StatusType .getAllStatusTypes();
     }
-    async addstatusType(data) {
+    async addStatusType(data) {
         // Call getAllUsers method from the User model
-        return await  StatusType .addstatusType(data);
+        return await  StatusType .addStatusType(data);
     }
 
-    async updatestatusType(data) {
+    async updateStatusType(data) {
         // Call getAllUsers method from the User model
-        return await  StatusType .updatestatusType(data);
+        return await  StatusType .updateStatusType(data);
     }
    
 

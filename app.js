@@ -210,7 +210,7 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const checkouthistories = await new StatusTypeController().getAllstatusTypes();
+            const checkouthistories = await new StatusTypeController().getAllStatusTypes();
             console.log(checkouthistories);
             // Send response data
             res.end(JSON.stringify(checkouthistories)); 
@@ -250,14 +250,14 @@ else if (path === "/api/login" && method === "POST") {
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const userData = JSON.parse(requestData);
-        console.log(userData);
+        const data = JSON.parse(requestData);
+        console.log(data);
         // Create the new user
-        const newUser = await new UserController().postuserInfo(userData);
+        const newUser = await new UserController().postUserInfo(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(userData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -271,14 +271,14 @@ else if (path === "/api/add-productType" && method === "POST") {
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const productTypeData = JSON.parse(requestData);
-        console.log(productTypeData);
+        const data = JSON.parse(requestData);
+        console.log(data);
         // Create the new user
-        const newUser = await new ProductTypeController().addProductType(productTypeData);
+        const newUser = await new ProductTypeController().addProductType(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(productTypeData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -292,10 +292,10 @@ else if (path === "/api/add-product" && method === "POST") {
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const productData = JSON.parse(requestData);
-        console.log(productData);
+        const data = JSON.parse(requestData);
+        console.log(data);
         // Create the new user
-        const newUser = await new ProductController().addProduct(productData);
+        const newUser = await new ProductController().addProduct(data);
     
 
        
@@ -335,14 +335,14 @@ else if (path === "/api/add-media" && method === "POST") {
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const mediaData = JSON.parse(requestData);
-        console.log(mediaData);
+        const data = JSON.parse(requestData);
+        console.log(data);
         // Create the new user
-        const newUser = await new MediaController().addMedia(mediaData);
+        const newUser = await new MediaController().addMedia(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(mediaData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -401,7 +401,7 @@ else if (path === "/api/add-statusType" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new StatusTypeController().addstatusType(data);
+        const newUser = await new StatusTypeController().addStatusType(data);
     
        
         // Send the new user data in response
@@ -590,7 +590,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(data);
         // Update a product
   
-        const result = await new StatusTypeController().updatestatusType(data);
+        const result = await new StatusTypeController().updateStatusType(data);
         console.log(result);
   
         // Send the reservation data in response

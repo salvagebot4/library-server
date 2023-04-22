@@ -8,7 +8,7 @@ const url = require("url");
 //CONTROLLERS
 const { UserController } = require("./Controllers/userController");
 const {BookController} = require("./Controllers/bookController");
-const { CheckouthistoryController} = require("./Controllers/checkouthistoryController");
+const { CheckoutHistoryController} = require("./Controllers/checkoutHistoryController");
 const { DeviceController } = require("./Controllers/deviceController");
 const {MediaController} = require("./Controllers/mediaController");
 const {ProductTypeController} = require("./Controllers/productTypeController");
@@ -193,7 +193,7 @@ const server = http.createServer(async (req, res) => {
             // Response headers (200 -> Success)
             res.writeHead(200, res_header);
             // Get the users
-            const checkouthistories = await new CheckouthistoryController().getAllCheckoutHistories();
+            const checkouthistories = await new CheckoutHistoryController().getAllCheckoutHistories();
             console.log(checkouthistories);
             // Send response data
             res.end(JSON.stringify(checkouthistories)); 
@@ -380,7 +380,7 @@ else if (path === "/api/add-checkoutHistory" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new CheckouthistoryController().addCheckouthistory(data);
+        const newUser = await new CheckoutHistoryController().addCheckoutHistory(data);
     
        
         // Send the new user data in response
@@ -569,7 +569,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(data);
         // Update a product
   
-        const result = await new CheckouthistoryController().updateCheckouthistory(data);
+        const result = await new CheckoutHistoryController().updateCheckoutHistory(data);
         console.log(result);
   
         // Send the reservation data in response

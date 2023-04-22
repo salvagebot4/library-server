@@ -13,7 +13,7 @@ class CheckoutHistory {
             throw new Error('Failed to retrieve all devices.');
         }
     }
-    static async addCheckouthistory(data) {
+    static async addCheckoutHistory(data) {
         try {
 
             const result = await pool.query(`
@@ -29,7 +29,7 @@ class CheckoutHistory {
             throw new Error('Failed to add product data');
         }
     }
-    static async updateCheckouthistory(data) {
+    static async updateCheckoutHistory(data) {
         try {
            
             let result;

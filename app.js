@@ -13,6 +13,7 @@ const { DeviceController } = require("./Controllers/deviceController");
 const {MediaController} = require("./Controllers/mediaController");
 const {ProductTypeController} = require("./Controllers/productTypeController");
 const {ProductController} = require("./Controllers/productController");
+const {ProductInstanceController} = require("./Controllers/productInstanceController");
 const {RoomController} = require("./Controllers/roomController");
 const {StatusTypeController} = require("./Controllers/statusTypeController");
 //AUTHENTICATE
@@ -110,6 +111,23 @@ const server = http.createServer(async (req, res) => {
             console.log(products );
             // Send response data
             res.end(JSON.stringify(products )); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if (path === "/api/productInstances" && method === "GET")
+    {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const productTypes = await new ProductInstanceController().getAllProductInstances();
+            console.log(productTypes );
+            // Send response data
+            res.end(JSON.stringify(productTypes)); 
         } catch(error) {
             // Set error
             res.writeHead(500, error_header);
@@ -308,6 +326,28 @@ else if (path === "/api/add-product" && method === "POST") {
         res.end(JSON.stringify({ message: error.message }));
     }
 }
+else if (path === "/api/add-productInstance" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const data = JSON.parse(requestData);
+        console.log(data);
+        // Create the new user
+        const newUser = await new ProductInstanceController().addProductInstance(data);
+    
+
+       
+        // Send the new user data in response
+        res.end(JSON.stringify(productData));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
 else if (path === "/api/add-device" && method === "POST") {
     try {
         res.writeHead(200, res_header);
@@ -465,6 +505,27 @@ else if (path === "/api/update-product" && method === "PUT") {
       // Update a product
 
       const result = await new ProductController().updateProduct(data);
+
+
+      // Send the reservation data in response
+      res.end(JSON.stringify(data));
+    } catch (error) {
+      // Set error
+      res.writeHead(500, error_header);
+      // Send error
+      res.end(JSON.stringify({ message: error.message }));
+    }
+  }
+  else if (path === "/api/update-productInstance" && method === "PUT") {
+    try {
+      res.writeHead(200, res_header);
+      // Parse the JSON data
+      const data = JSON.parse(await getReqData(req));
+      
+      console.log(data);
+      // Update a product
+
+      const result = await new ProductInstanceController().updateProductInstance(data);
 
 
       // Send the reservation data in response

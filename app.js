@@ -314,14 +314,14 @@ else if (path === "/api/add-device" && method === "POST") {
         // Get the request data
         const requestData = await getReqData(req);
         // Parse the JSON data
-        const deviceData = JSON.parse(requestData);
-        console.log(deviceData);
+        const data = JSON.parse(requestData);
+        console.log(data);
         // Create the new user
-        const newUser = await new DeviceController().addDevice(deviceData);
+        const newUser = await new DeviceController().addDevice(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(deviceData));
+        res.end(JSON.stringify(data));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);

@@ -1,4 +1,4 @@
-const { CheckoutHistory } = require("../Models/checkoutHistoryModel");
+const { CheckoutHistory } = require("../Models/checkouthistoryModel");
 
 class CheckoutHistoryController {
    

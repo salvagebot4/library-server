@@ -20,6 +20,7 @@
   "homepage": "https://github.com/salvagebot4/library-server#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "heroku": "^8.0.5",
     "jsonwebtoken": "^9.0.0",
     "nodemon": "^2.0.22",
     "pg": "^8.10.0"

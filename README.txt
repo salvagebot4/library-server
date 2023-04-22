@@ -28,6 +28,14 @@ example data:
     "type_name": "Book"
 }
 
+GET : /api/statusTypes
+this route gets all statusTypes data 
+example data:
+{
+    "type_id": 1,
+    "status_name": "Available"
+}
+
 GET : /api/products
 this route gets all products data 
 example data:
@@ -36,12 +44,10 @@ example data:
     "product_type_id": 1,
     "product_name": "The Catcher in the Rye",
     "cost": "10.99",
-    "stock_number": 20,
-    "email": "john.doe@example.com",
     "fine_multiplier": "0.25",
-    "is_checked_out": false,
-    "is_reserved": false,
-    "is_deleted": false
+    "is_deleted": false,
+    "is_featured": false,
+	"status_type_id": 1
 }
 
 GET : /api/products/books
@@ -53,8 +59,7 @@ example data:
     "publisher": "HarperCollins",
     "publication_date": "2022-02-01T06:00:00.000Z",
     "product_id": "10001",
-    "page_count": 320,
-    "is_deleted": false
+    "page_count": 320
 }
 
 GET : /api/products/devices
@@ -62,8 +67,7 @@ this route gets all devices data
 example data:
 {
     "product_id": "20001",
-    "manufacturer": "Apple",
-    "is_deleted": false
+    "manufacturer": "Apple"
 }
 
 GET : /api/products/medias
@@ -76,8 +80,7 @@ example data:
     "publisher": "Hodder & Stoughton",
     "publication_date": "2015-02-25T06:00:00.000Z",
     "file_size": "2.2GB",
-    "is_interactive": false,
-    "is_deleted": false
+    "is_interactive": false
 }
 
 GET : /api/rooms
@@ -127,8 +130,6 @@ example data:
 	"product_type_id": "1",
 	"product_name": "Food 101",
 	"cost": "5.00",
-	"stock_number":"15",
-	"email": "example@example.com",
 	"fine_multiplier": "0.25"	
 }
 
@@ -172,6 +173,14 @@ example data:
     "product_id" : "10003",
     "email" : "kevin@example.com",
     "date_checked_out" : "2023-04-20"
+}
+
+POST : /api/add-statusType
+this route adds a statusType
+example data:
+{
+	"type_id" : "2",
+	"status_name" : "OVERDUE"
 }
 --------------------------------------------------------------------
 
@@ -245,4 +254,13 @@ example data:
     "new_value" : "2023-04-21",
 	"column_name": "date_checked_out",
     "product_id" : "10003"
+}
+
+PUT : /api/update-statusType
+this route updates a statusType
+example data:
+{
+	"new_value" : "Available" ,
+	"column_name" : "status_name",
+	"type_id" : "1"	
 }

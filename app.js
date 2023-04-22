@@ -257,7 +257,7 @@ else if (path === "/api/login" && method === "POST") {
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(userData));
+        res.end(JSON.stringify(newUser));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);

@@ -18,8 +18,8 @@ class CheckoutHistory {
 
             const result = await pool.query(`
 
-              INSERT INTO library.checkout_history (product_id,email,date_checked_out) 
-              VALUES (${data.product_id},'${data.email}','${data.date_checked_out}');
+              INSERT INTO library.checkout_history (checkout_id,instance_id) 
+              VALUES (${data.checkout_id},'${data.instance_id}');
             `)
 
             return result.rows;
@@ -35,14 +35,14 @@ class CheckoutHistory {
             let result;
             const new_value = data.new_value;
             const column_name = data.column_name;
-            const product_id= data.product_id;
+            const checkout_id= data.checkout_id;
             console.log(typeof new_value);
             if(typeof new_value === 'string')
             {
                result = await pool.query(`
                    UPDATE library.checkout_history
                    SET ${column_name}='${new_value}'
-                   WHERE product_id = '${product_id}';
+                   WHERE checkout_id = '${checkout_id}';
                `);
             }
             else
@@ -50,10 +50,10 @@ class CheckoutHistory {
                result = await pool.query(`
                UPDATE library.checkout_history
                SET ${column_name}=${new_value}
-               WHERE product_id= ${product_id};
+               WHERE checkout_id= ${checkout_id};
                `);
             }
-            console.log(`checkout history ${product_id} updated`);
+            console.log(`checkout history ${checkout_id} updated`);
             return result;
         } catch (error) {
             console.log(error);

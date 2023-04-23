@@ -24,14 +24,16 @@ GET : /api/productTypes
 this route gets all productTypes data 
 example data:
 {
-    "type_id": 1,
-    "type_name": "Book"
+	"type_id": 1,
+    "type_name": "Book",
+    "is_deleted": false
 }
 
 GET : /api/productInstances
 this route gets all productInstances data 
 example data:
 {
+  	"product_name": "Food 101",
     "instance_id": 1,
     "product_id": "10003",
     "email": "morgan@example.com",
@@ -46,7 +48,8 @@ this route gets all statusTypes data
 example data:
 {
     "type_id": 1,
-    "status_name": "Available"
+    "status_name": "Available",
+    "is_deleted": false
 }
 
 GET : /api/products
@@ -60,13 +63,14 @@ example data:
     "fine_multiplier": "0.25",
     "is_deleted": false,
     "is_featured": false,
-	"status_type_id": 1
+    "stock_number": 0
 }
 
 GET : /api/products/books
 this route gets all books data 
 example data:
 {
+    "product_name": "The Catcher in the Rye",
     "author": "Jane Doe",
     "description": "A thriller novel",
     "publisher": "HarperCollins",
@@ -79,6 +83,7 @@ GET : /api/products/devices
 this route gets all devices data 
 example data:
 {
+    "product_name": "MacBook Pro",
     "product_id": "20001",
     "manufacturer": "Apple"
 }
@@ -87,6 +92,7 @@ GET : /api/products/medias
 this route gets all medias data 
 example data:
 {
+    "product_name": "The Shawshank Redemption",
     "product_id": "30001",
     "author": "Stephen King",
     "description": "A story about hope and perseverance.",
@@ -95,7 +101,6 @@ example data:
     "file_size": "2.2GB",
     "is_interactive": false
 }
-
 GET : /api/rooms
 this route gets all rooms data 
 example data:
@@ -111,8 +116,15 @@ GET : /api/checkoutHistory
 this route gets all checkoutHistory data 
 example data:
 {
-    "checkout_id": 21,
-    "instance_id": 2
+    "product_name": "Saving Grace",
+    "instance_id": 2,
+    "product_id": "10004",
+    "email": "kevin@example.com",
+    "status_type_id": 1,
+    "checked_out_date": "2023-04-21T05:00:00.000Z",
+    "returned_date": "2023-04-21T05:00:00.000Z",
+    "is_deleted": false,
+    "checkout_id": 21
 }
 
 --------------------------------------------------------------------

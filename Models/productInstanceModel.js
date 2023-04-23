@@ -20,11 +20,10 @@ class ProductInstance {
             const is_deleted = false;
             const status_type_id = 1;
             const result = await pool.query(`
-
-              INSERT INTO library.product_instance (instance_id, product_id,email,status_type_id,checked_out_date,returned_date,is_deleted) 
-              VALUES (${data.instance_id},'${data.product_id}','${data.email}',${status_type_id},'${data.checked_out_date}','${data.returned_date}',${is_deleted});
             
-             
+                INSERT INTO postgres.library.product_instance(instance_id, product_id,email,status_type_id, checked_out_date,returned_date,is_deleted)
+                VALUES (${data.instance_id},'${data.product_id}','${data.email}',${status_type_id},'${data.checked_out_date}', '${data.returned_date}', ${is_deleted});
+      
             `)
 
             return result.rows;

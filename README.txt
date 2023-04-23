@@ -116,7 +116,7 @@ example data:
 }
 
 --------------------------------------------------------------------
-POST : /api/register-User
+POST : /api/register-user
 this route registers a user data
 example data:
 {

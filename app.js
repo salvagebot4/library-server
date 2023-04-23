@@ -317,8 +317,6 @@ else if (path === "/api/add-product" && method === "POST") {
         // Create the new user
         const newUser = await new ProductController().addProduct(data);
     
-
-       
         // Send the new user data in response
         res.end(JSON.stringify(data));
     } catch (error) {

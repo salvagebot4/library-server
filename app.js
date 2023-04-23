@@ -271,12 +271,12 @@ else if (path === "/api/login" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new UserController().postUserInfo(data);
+        const newLogin = await new UserController().postUserInfo(data);
     
        
         // Send the new user data in response
 
-        res.end(JSON.stringify(newUser));
+        res.end(JSON.stringify(newLogin));
 
     } catch (error) {
         // Set error
@@ -294,11 +294,11 @@ else if (path === "/api/add-productType" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new ProductTypeController().addProductType(data);
+        const newProductType = await new ProductTypeController().addProductType(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newProductType));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -315,10 +315,10 @@ else if (path === "/api/add-product" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new ProductController().addProduct(data);
+        const newProduct = await new ProductController().addProduct(data);
     
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newProduct));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -335,10 +335,10 @@ else if (path === "/api/add-productInstance" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new ProductInstanceController().addProductInstance(data);
+        const newProductInstance = await new ProductInstanceController().addProductInstance(data);
     
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newProductInstance));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -355,11 +355,11 @@ else if (path === "/api/add-device" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new DeviceController().addDevice(data);
+        const newDevice = await new DeviceController().addDevice(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newDevice));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -376,11 +376,11 @@ else if (path === "/api/add-media" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new MediaController().addMedia(data);
+        const newMedia = await new MediaController().addMedia(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newMedia));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -397,11 +397,11 @@ else if (path === "/api/add-book" && method === "POST") {
         const bookData = JSON.parse(requestData);
         console.log(bookData);
         // Create the new user
-        const newUser = await new BookController().addBook(bookData);
+        const newBook = await new BookController().addBook(bookData);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(bookData));
+        res.end(JSON.stringify(newBook));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -418,11 +418,11 @@ else if (path === "/api/add-checkoutHistory" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new CheckoutHistoryController().addCheckoutHistory(data);
+        const newCheckoutHistory = await new CheckoutHistoryController().addCheckoutHistory(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newCheckoutHistory));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -439,11 +439,11 @@ else if (path === "/api/add-statusType" && method === "POST") {
         const data = JSON.parse(requestData);
         console.log(data);
         // Create the new user
-        const newUser = await new StatusTypeController().addStatusType(data);
+        const newStatusType = await new StatusTypeController().addStatusType(data);
     
        
         // Send the new user data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(newStatusType));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);
@@ -464,7 +464,7 @@ else if (path === "/api/update-user" && method === "PUT") {
       const result = await new UserController().updateUser(data);
 
       // Send the reservation data in response
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -485,7 +485,7 @@ else if (path === "/api/update-productType" && method === "PUT") {
         console.log(result);
   
         // Send the reservation data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -506,7 +506,7 @@ else if (path === "/api/update-product" && method === "PUT") {
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -527,7 +527,7 @@ else if (path === "/api/update-product" && method === "PUT") {
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -548,7 +548,7 @@ else if (path === "/api/update-product" && method === "PUT") {
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -569,7 +569,7 @@ else if (path === "/api/update-product" && method === "PUT") {
 
 
       // Send the reservation data in response
-      res.end(JSON.stringify(data));
+      res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -590,7 +590,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(result);
   
         // Send the reservation data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -611,7 +611,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(result);
   
         // Send the reservation data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -632,7 +632,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(result);
   
         // Send the reservation data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);
@@ -653,7 +653,7 @@ else if (path === "/api/update-product" && method === "PUT") {
         console.log(result);
   
         // Send the reservation data in response
-        res.end(JSON.stringify(data));
+        res.end(JSON.stringify(result));
     } catch (error) {
       // Set error
       res.writeHead(500, error_header);

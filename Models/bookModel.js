@@ -4,7 +4,7 @@ class Book {
     static async getAllBooks() {
         try {
             const result = await pool.query(`
-                SELECT * FROM postgres.library.book;
+                SELECT p.product_name, b.* FROM postgres.library.book b, postgres.library.product p WHERE b.product_id = p.product_id;
             `)
             return result.rows;
 

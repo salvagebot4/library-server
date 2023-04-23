@@ -4,7 +4,7 @@ class Device {
     static async getAllDevices() {
         try {
             const result = await pool.query(`
-                SELECT * FROM postgres.library.device;
+            SELECT p.product_name, d.* FROM postgres.library.device d, postgres.library.product p WHERE d.product_id = p.product_id;
             `)
             return result.rows;
 

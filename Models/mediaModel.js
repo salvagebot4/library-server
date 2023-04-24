@@ -4,7 +4,7 @@ class Media {
     static async getAllMedias() {
         try {
             const result = await pool.query(`
-            SELECT p.product_name, m.* FROM postgres.library.media m, postgres.library.product p WHERE m.product_id = p.product_id;
+            SELECT p.*, m.* FROM postgres.library.media m, postgres.library.product p WHERE m.product_id = p.product_id;
             `)
             return result.rows;
 

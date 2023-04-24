@@ -1,6 +1,12 @@
 # library-server
 NodeJS server that handles HTTP requests
 
+nodemon start
+Front end
+
+npm start
+
+
 Documentation on every single route
 
 Examples: 

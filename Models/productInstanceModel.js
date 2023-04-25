@@ -4,7 +4,7 @@ class ProductInstance {
     static async getAllProductInstances() {
         try {
             const result = await pool.query(`
-            SELECT p.product_name, pi.* FROM postgres.library.product_instance pi, postgres.library.product p WHERE pi.product_id = p.product_id;
+            SELECT p.*, pi.* FROM postgres.library.product_instance pi, postgres.library.product p WHERE pi.product_id = p.product_id;
             `)
             return result.rows;
 

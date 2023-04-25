@@ -298,10 +298,27 @@ else if (path === "/api/register-user" && method === "POST") {
         console.log(userData);
         // Create the new user
         const newUser = await new UserController().createUser(userData);
-    
-       
         // Send the new user data in response
         res.end(JSON.stringify(newUser));
+    } catch (error) {
+        // Set error
+        res.writeHead(500, error_header);
+        // Send error
+        res.end(JSON.stringify({ message: error.message }));
+    }
+}
+else if (path === "/api/userInventory" && method === "POST") {
+    try {
+        res.writeHead(200, res_header);
+        // Get the request data
+        const requestData = await getReqData(req);
+        // Parse the JSON data
+        const userData = JSON.parse(requestData);
+        console.log(userData);
+        // Create the new user
+        const userInventory = await new UserController().getuserInventory(userData);
+        // Send the new user data in response
+        res.end(JSON.stringify(userInventory));
     } catch (error) {
         // Set error
         res.writeHead(500, error_header);

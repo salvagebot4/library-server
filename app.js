@@ -65,7 +65,54 @@ const server = http.createServer(async (req, res) => {
         // Send the response data
         res.end(JSON.stringify("Hello Library!!!")); 
     }
-
+    else if(path === "/api/productAvailabilityReports" && method === "GET") {
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const ProductAvailability = await new ProductController().getProductAvailabilityReports(); //change the function
+            console.log(ProductAvailability);
+            // Send response data
+            res.end(JSON.stringify(ProductAvailability)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if(path === "/api/productMostBorrowedReports" && method === "GET"){
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const productMostBorrowed = await new ProductController().getproductMostBorrowedReports(); //change the function
+            console.log(productMostBorrowed);
+            // Send response data
+            res.end(JSON.stringify(productMostBorrowed)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
+    else if(path === "/api/userMostActiveReports" && method === "GET"){
+        try {
+            // Response headers (200 -> Success)
+            res.writeHead(200, res_header);
+            // Get the users
+            const userMostActive = await new UserController().getuserMostActiveReports(); //change the function
+            console.log(userMostActive);
+            // Send response data
+            res.end(JSON.stringify(userMostActive)); 
+        } catch(error) {
+            // Set error
+            res.writeHead(500, error_header);
+            // Send error
+            res.end(JSON.stringify({ message: error.message }));
+        }
+    }
     //This route gets all users data
     else if (path === "/api/users" && method === "GET") {
 

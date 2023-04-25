@@ -17,8 +17,6 @@ class Book {
         try {
             const result = await pool.query(`
 
-
-              INSERT INTO library.product_id
               INSERT INTO library.book (author, description, publisher, publication_date, product_id, page_count) 
               VALUES ('${bookData.author}','${bookData.description}',
               '${bookData.publisher}', '${bookData.publication_date}', '${bookData.product_id}', ${bookData.page_count});

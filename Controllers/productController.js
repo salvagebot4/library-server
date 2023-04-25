@@ -6,15 +6,30 @@ class ProductController {
         return await Product.getAllProducts();
     }
     async addProduct(data) {
-        // Call getAllUsers method from the User model
+  
         return await Product.addProduct(data);
     }
     async updateProduct(data) {
-        // Call getAllUsers method from the User model
+      
         return await Product.updateProduct(data);
     }
+    //VIEWS
+    async getProductAvailabilityReports() {
+      
+        return await Product.getProductAvailabilityReports();
+    }
+    async getproductMostBorrowedReports() {
+      
+        return await Product.getproductMostBorrowedReports();
+    }
+    async getproductMostBorrowedReports() {
+      
+        return await Product.getproductMostBorrowedReports();
+    }
+  
 
 }
+
 
 module.exports = {
     ProductController,

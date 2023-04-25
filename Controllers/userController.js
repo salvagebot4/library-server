@@ -21,12 +21,10 @@ class UserController {
         // Call getAllUsers method from the User model
         return await User.postUserInfo(data);
     }
+    async getuserMostActiveReports(){
 
-    //TODO
-    /*
-        Get all other table data
-    */
-
+        return await User.getuserMostActiveReports();
+    }
 
 }
 

@@ -100,23 +100,7 @@ class User {
             throw new Error('Failed to receive user login.');
         }
     }
-    static async postUserInfo(data) {
-        try {
-           
-            const result = await pool.query(`
-
-              SELECT * FROM library.user_login 
-              WHERE email = '${data.email}' AND password = '${data.password}';
-
-            `)
-            console.log(`user ${data.email} has been retrieved`);
-            return result.rows;
-        } catch (error) {
-            console.log(error);
-            throw new Error('Failed to receive user login.');
-        }
-    }
-    static async  getuserMostActiveReports(){
+    static async getuserMostActiveReports(){
         try {
            
             const result = await pool.query(`
@@ -130,12 +114,22 @@ class User {
             console.log(error);
             throw new Error('Failed to Show user most active report..');
         }
+    }
+    static async getuserInventory(data){
+        try {
+            const result = await pool.query(`
 
+                SELECT pt.type_name,p.product_id, p.product_name, u.email, u.first_name,u.last_name
+                FROM library.product_instance pi, library.user_login u, library.product p, library.product_type pt
+                WHERE pi.product_id = p.product_id AND pi.email = '${data.email}' AND u.email = pi.email
+                AND pt.type_id = p.product_type_id AND pi.is_reserved = true;
 
-
-
-
-
+            `)
+            return result.rows;
+        } catch (error) {
+            console.log(error);
+            throw new Error('Failed to Show user inventory..');
+        }
     }
 
 

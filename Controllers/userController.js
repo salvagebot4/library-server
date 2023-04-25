@@ -21,6 +21,9 @@ class UserController {
         // Call getAllUsers method from the User model
         return await User.postUserInfo(data);
     }
+    async getuserInventory(data){
+        return await User.getuserInventory(data);
+    }
     async getuserMostActiveReports(){
 
         return await User.getuserMostActiveReports();
